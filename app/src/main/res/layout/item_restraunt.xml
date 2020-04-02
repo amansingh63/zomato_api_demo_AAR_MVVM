@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.appcompat.widget.AppCompatCheckBox" />
+
+        <variable
+            name="restaurants"
+            type="com.amansingh63.zomatoapidemo.models.search.Restaurants" />
+
+        <variable
+            name="viewmodel"
+            type="com.amansingh63.zomatoapidemo.ui.search.SearchViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{(view)-> viewmodel.onSearchResultClicked(restaurants.restaurant)}"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRestaurant"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            app:restaurantsImage="@{restaurants.restaurant.featured_image}" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toStartOf="@+id/cbFavorite"
+            android:layout_toLeftOf="@+id/cbFavorite"
+            android:layout_toEndOf="@+id/ivRestaurant"
+            android:layout_toRightOf="@+id/ivRestaurant"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRestaurantName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="@{restaurants.restaurant.name}"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCusine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:text="@{restaurants.restaurant.cuisines}" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:checked="@{restaurants.restaurant.favourite}"
+            android:onClick="@{(view) -> viewmodel.markUnmarkFavorite(restaurants, ((AppCompatCheckBox)view).isChecked())}"
+            android:button="@drawable/favorite_selector" />
+
+    </RelativeLayout>
+</layout>
