@@ -79,13 +79,13 @@ class SearchViewModel @Inject constructor(
 
     private fun parseRestrauntByCuisines(restaurantsList: List<Restaurants>): List<Any> {
         val restaurantsListWithHeader = mutableListOf<Any>()
-        val distinctCuisines = restaurantsList.map { it.restaurant!!.cuisines }
+        val distinctCuisines = restaurantsList.map { it.restaurant.cuisines }
 
         Timber.d("Unique cuisines found (${distinctCuisines.size}) : $distinctCuisines")
 
         for (cuisine in distinctCuisines) {
             restaurantsListWithHeader.add(ListHeader(cuisine))
-            restaurantsListWithHeader.addAll(restaurantsList.filter { it.restaurant!!.cuisines == cuisine })
+            restaurantsListWithHeader.addAll(restaurantsList.filter { it.restaurant.cuisines == cuisine })
         }
         return restaurantsListWithHeader
     }

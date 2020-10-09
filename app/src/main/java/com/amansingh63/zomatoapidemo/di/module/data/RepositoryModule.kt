@@ -12,7 +12,7 @@ import com.amansingh63.zomatoapidemo.data.pref.AppPreferenceImpl
 import com.amansingh63.zomatoapidemo.data.remote.ApiEndPoints
 import com.amansingh63.zomatoapidemo.data.remote.AppRemoteDataSource
 import com.amansingh63.zomatoapidemo.data.remote.RetrofitClient
-import com.amansingh63.zomatoapidemo.util.network.RetrofiltErrorUtil
+import com.amansingh63.zomatoapidemo.util.network.RetrofitErrorUtil
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -76,12 +76,12 @@ object RepositoryModule {
     @Provides
     fun provideAppRemoteDataSource(
         apiEndPoints: ApiEndPoints,
-        retrofiltErrorUtil: RetrofiltErrorUtil,
+        retrofitErrorUtil: RetrofitErrorUtil,
         appPreference: AppPreference
     ): AppDataSource {
         return AppRemoteDataSource(
             apiEndPoints,
-            retrofiltErrorUtil,
+            retrofitErrorUtil,
             appPreference
         )
     }
@@ -91,7 +91,7 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun getApiErrorUtil(retrofit: Retrofit) =
-        RetrofiltErrorUtil(retrofit)
+        RetrofitErrorUtil(retrofit)
 
     @JvmStatic
     @Singleton

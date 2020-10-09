@@ -4,7 +4,7 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.amansingh63.zomatoapidemo.Event
+import com.amansingh63.zomatoapidemo.util.livedata.Event
 import com.google.android.material.snackbar.Snackbar
 
 /**

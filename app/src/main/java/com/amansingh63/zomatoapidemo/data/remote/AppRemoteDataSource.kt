@@ -7,13 +7,13 @@ import com.amansingh63.zomatoapidemo.models.ApiResult
 import com.amansingh63.zomatoapidemo.models.search.SearchResponse
 import com.amansingh63.zomatoapidemo.util.network.ApiParams
 import com.amansingh63.zomatoapidemo.util.network.InternetUtil
-import com.amansingh63.zomatoapidemo.util.network.RetrofiltErrorUtil
+import com.amansingh63.zomatoapidemo.util.network.RetrofitErrorUtil
 import timber.log.Timber
 import javax.inject.Inject
 
 class AppRemoteDataSource @Inject constructor(
     private val apiEndPoints: ApiEndPoints,
-    private val retrofiltErrorUtil: RetrofiltErrorUtil,
+    private val retrofitErrorUtil: RetrofitErrorUtil,
     private val appPreference: AppPreference
 ) : AppDataSource {
 
@@ -34,13 +34,13 @@ class AppRemoteDataSource @Inject constructor(
                 if (response.isSuccessful && response.body() != null) {
                     ApiResult.Success(response.body()!!)
                 } else if (response.errorBody() != null) {
-                    retrofiltErrorUtil.parseError(response)
+                    retrofitErrorUtil.parseError(response)
                 } else {
                     ApiResult.Error(ApiError())
                 }
             } catch (e: Exception) {
                 Timber.e(e)
-                retrofiltErrorUtil.parseError(e)
+                retrofitErrorUtil.parseError(e)
             }
         }
 

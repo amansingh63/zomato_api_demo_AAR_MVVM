@@ -3,8 +3,8 @@ package com.amansingh63.zomatoapidemo.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.amansingh63.zomatoapidemo.Event
 import com.amansingh63.zomatoapidemo.models.ApiError
+import com.amansingh63.zomatoapidemo.util.livedata.Event
 
 open class BaseViewModel : ViewModel() {
 
@@ -20,8 +20,9 @@ open class BaseViewModel : ViewModel() {
     protected val _apiError = MutableLiveData<ApiError>()
     val apiError: LiveData<ApiError> = _apiError
 
-    public fun showSnackbarMessage(message: String) {
-        _snackbarText.value = Event(message)
+    fun showSnackbarMessage(message: String) {
+        _snackbarText.value =
+            Event(message)
     }
 
 }

@@ -26,7 +26,6 @@ data class Restaurants(
 @Entity
 @Parcelize
 @Serializable
-
 data class Restaurant @JvmOverloads constructor(
     @Ignore val R: R = R(),
     @Ignore val apikey: String = "",
@@ -69,8 +68,7 @@ data class Restaurant @JvmOverloads constructor(
     @Ignore val establishment: List<String> = emptyList(),
     @Ignore val establishment_types: List<String> = emptyList(),
     var isFavourite: Boolean = false
-) : Parcelable {
-}
+) : Parcelable
 
 @Parcelize
 @Serializable

@@ -2,7 +2,7 @@ package com.amansingh63.zomatoapidemo.util.network
 
 import com.amansingh63.zomatoapidemo.models.ApiError
 import com.amansingh63.zomatoapidemo.models.ApiResult
-import kotlinx.serialization.json.JsonException
+import kotlinx.serialization.SerializationException
 import retrofit2.Response
 import retrofit2.Retrofit
 import timber.log.Timber
@@ -12,7 +12,7 @@ import java.net.UnknownHostException
 import javax.inject.Inject
 import javax.net.ssl.SSLException
 
-class RetrofiltErrorUtil @Inject constructor(private val retrofit: Retrofit) {
+class RetrofitErrorUtil @Inject constructor(private val retrofit: Retrofit) {
 
     fun <T> parseError(response: Response<T>): ApiResult.Error {
         val converter =
@@ -49,7 +49,7 @@ class RetrofiltErrorUtil @Inject constructor(private val retrofit: Retrofit) {
             is UnknownHostException -> ApiResult.Error(ApiError(message = "Server Error"))
             is SocketTimeoutException -> ApiResult.Error(ApiError(message = "Server Timeout"))
             is ConnectException -> ApiResult.Error(ApiError(message = "Connection Refused"))
-            is JsonException -> ApiResult.Error(ApiError(message = "JSON Parsing Error"))
+            is SerializationException -> ApiResult.Error(ApiError(message = "JSON Parsing Error"))
             is SSLException -> ApiResult.Error(ApiError(message = "SSL Security Error"))
             else -> {
                 error.message?.let {

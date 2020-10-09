@@ -69,9 +69,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:button="@drawable/favorite_selector"
             android:checked="@{restaurants.restaurant.favourite}"
-            android:onClick="@{(view) -> viewmodel.markUnmarkFavorite(restaurants, ((AppCompatCheckBox)view).isChecked())}"
-            android:button="@drawable/favorite_selector" />
+            android:onClick="@{(view) -> viewmodel.markUnmarkFavorite(restaurants, ((AppCompatCheckBox)view).isChecked())}" />
 
     </RelativeLayout>
 </layout>

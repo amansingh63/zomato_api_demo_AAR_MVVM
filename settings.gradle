@@ -1,2 +1,2 @@
-rootProject.name='Zomato Api Demo'
+rootProject.name = 'Zomato Api Demo'
 include ':app'

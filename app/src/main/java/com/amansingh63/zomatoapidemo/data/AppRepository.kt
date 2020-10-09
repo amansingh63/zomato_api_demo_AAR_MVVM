@@ -1,7 +1,6 @@
 package com.amansingh63.zomatoapidemo.data
 
 import com.amansingh63.zomatoapidemo.models.ApiResult
-import com.amansingh63.zomatoapidemo.models.search.Restaurant
 import com.amansingh63.zomatoapidemo.models.search.Restaurants
 import com.amansingh63.zomatoapidemo.models.search.SearchResponse
 

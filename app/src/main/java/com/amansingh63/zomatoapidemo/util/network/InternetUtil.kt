@@ -46,7 +46,8 @@ object InternetUtil : LiveData<Boolean>() {
             }
 
             application.registerReceiver(
-                broadcastReceiver, filter)
+                broadcastReceiver, filter
+            )
         }
     }
 
