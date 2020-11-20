@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.amansingh63.zomatoapidemo.models.ApiError
 import com.amansingh63.zomatoapidemo.util.livedata.Event
 
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel  : ViewModel() {
 
     protected val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
